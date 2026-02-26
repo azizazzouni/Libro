@@ -1,10 +1,13 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint --ext .ts src --fix",
+    "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
     "prisma": "prisma",
     "seed": "node prisma/seed.js"
   },
@@ -16,6 +19,14 @@
     "prisma": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
+    "eslint": "^8.47.0",
+    "nodemon": "^3.1.14",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "~5.5.0",
+    "prettier": "^2.8.8"
   }
 }

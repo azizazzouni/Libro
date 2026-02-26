@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 
+type User = {
+  id: number;
+  email: string;
+  name?: string | null;
+};
+
 function App() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     fetch('/api/users')
       .then((res) => res.json())
-      .then(setUsers)
+      .then((data) => setUsers(data as User[]))
       .catch(console.error);
   }, []);
 
@@ -15,7 +21,9 @@ function App() {
       <h1>Users</h1>
       <ol>
         {users.map((u) => (
-          <li key={u.id}>{u.email} ({u.name})</li>
+          <li key={u.id}>
+            {u.email} ({u.name})
+          </li>
         ))}
       </ol>
     </div>
