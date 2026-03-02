@@ -1,6 +1,9 @@
 # git utils  
 
-git branch --show-current  
+git branch --show-current 
+git branch --list 
+
+git status 
 
 git add .  
 git commit -m "updates"  
