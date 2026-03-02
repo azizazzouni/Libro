@@ -9,7 +9,8 @@
     "lint": "eslint --ext .ts src --fix",
     "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
     "prisma": "prisma",
-    "seed": "node prisma/seed.js"
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
   },
   "dependencies": {
     "@prisma/client": "^5.0.0",
